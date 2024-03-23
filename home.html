@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page using Dark mode</title>
+    <link  rel="stylesheet" href="home.css">
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class = "navbar">
+        <div class = "logo">
+            <img src="images/logo.png" alt="">
+           
+        </div>
+        <div class = "menu">
+            <ul>
+                <li><a href ="#">HOME</a></li>
+                <li><a href ="#">ABOUT</a></li>
+                <li><a href ="#">PLACES</a></li>
+                <li><a href ="#">REVIEWS</a></li>
+                <li><a href ="#">LOGIIN</a></li>
+                <img src="images/c.jpg" alt="moon" id="icon">  
+                </ul>
+        </div>
+        </div>
+
+        <div class="con">
+        <div class="container">
+            <h1> <span>MOHIT</span> KUMAR</h1>
+            <p>"In the night mode of challenges, let your portfolio be <br>the radiant beacon.
+             Embrace uncertainty, wield creativity, <br>and paint your success story."</p>
+            <button>Source code</button>
+        </div>
+        <div class="imgbox">
+            <img src="images/a.png" class="aimg"> 
+            <img src="images/a.png" class="bimg">
+        </div>
+    </div>
+    <div class="socialmedia">
+        <i class="fa-brands fa-square-facebook fa-2x"></i>
+        <i class="fa-brands fa-instagram fa-2x"></i>
+        <i class="fa-brands fa-twitter fa-2x"></i>
+    </div>
+
+<script>
+    var icon = document.getElementById("icon");
+     
+    if(localStorage.getItem("theme") == null){
+        
+        localStorage.setItem("theme","light");
+    }
+    
+    let localData = localStorage.getItem("theme");
+    if(localData == "light"){
+        icon.src="images/c.jpg";   
+        document.body.classList.remove("dark-theme");
+    }
+    else if(localData == "dark") {
+        icon.src="images/b.jpg";   
+        document.body.classList.add("dark-theme");
+    }
+
+
+    icon.onclick = function()
+    {
+        document.body.classList.toggle("dark-theme");
+        if(document.body.classList.contains("dark-theme"))
+        {
+            icon.src="images/b.jpg";
+            localStorage.setItem("theme","light");
+        }
+        else{
+            icon.src="images/c.jpg"; 
+            localStorage.setItem("theme","dark");  
+        }
+    }
+    </script>
+
+</body>
+</html>
